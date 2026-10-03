@@ -1,15 +1,14 @@
 import { supabase } from "./supabaseClient";
 
 /**
- * This module is a drop-in replacement for the `window.storage` API used
- * in the Claude.ai artifact preview. Every key (patients, appointments,
- * prescriptions, bills, clinic-settings, custom-medicines) is stored as a
- * single row in the `clinic_kv` table, keyed by `key`, with the value
- * stored directly as JSONB — so no manual JSON.stringify/parse is needed.
+ * This module handles loading/saving shared app data via Supabase.
+ * Every key (patients, appointments, prescriptions, bills, clinic-settings,
+ * custom-medicines) is stored as a single row in the `clinic_kv` table,
+ * keyed by `key`, with the value stored directly as JSONB — so no manual
+ * JSON.stringify/parse is needed.
  *
- * This keeps the rest of the app's code completely unchanged: every
- * `loadShared(key, fallback)` / `saveShared(key, value)` call in App.jsx
- * works exactly as it did in the Claude artifact.
+ * Every `loadShared(key, fallback)` / `saveShared(key, value)` call in
+ * App.jsx reads and writes through this module.
  */
 
 export async function loadShared(key, fallback) {

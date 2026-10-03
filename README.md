@@ -4,9 +4,9 @@ A clinic management app: patients, appointments, prescriptions (with printable
 letterheads for each doctor), billing/e-receipts, and a revenue tracker —
 shared live between doctors and reception across any device.
 
-This is the same app you used inside Claude, now packaged as a real,
-deployable website. It costs **$0/month** to run on the free tiers below,
-unless your clinic's data grows far beyond what a small practice needs.
+This project is packaged as a real, deployable website. It costs
+**$0/month** to run on the free tiers below, unless your clinic's data
+grows far beyond what a small practice needs.
 
 ---
 
@@ -86,8 +86,7 @@ samartha-clinic-app/
 │   ├── index.css             ← Tailwind + fonts
 │   └── lib/
 │       ├── supabaseClient.js ← connects to your Supabase project
-│       └── storage.js        ← save/load + live sync (replaces the
-│                                Claude-artifact-only window.storage API)
+│       └── storage.js        ← save/load + live sync (Supabase-backed)
 ├── supabase/
 │   └── schema.sql            ← run this once in Supabase's SQL Editor
 ├── .env.example               ← copy to .env and fill in your Supabase keys
